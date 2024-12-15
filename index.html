@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <meta name="description" content="Portfolio of Varaprasad Sukala, Data Scientist">
+    <title>Varaprasad Sukala | Data Scientist</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -15,41 +16,103 @@
         header {
             background: #007bff;
             color: white;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
         }
         .container {
             padding: 2rem;
+            max-width: 900px;
+            margin: auto;
         }
         .card {
             background: white;
-            margin: 1rem 0;
-            padding: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .card h2 {
             margin-top: 0;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card ul li {
+            margin: 0.5rem 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem 0;
+            background: #333;
+            color: white;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Varaprasad Sukala</h1>
+        <p>Data Scientist | AI Enthusiast | Data Analyst</p>
     </header>
     <div class="container">
+        <!-- About Me Section -->
         <div class="card">
             <h2>About Me</h2>
-            <p>Hello! I'm [Your Name], a passionate [Your Profession]. This is my portfolio hosted on GitHub Pages.</p>
+            <p>Hello! I'm Varaprasad Sukala, a passionate Data Scientist with expertise in AI, machine learning, and data analytics. I enjoy solving complex problems and turning data into actionable insights.</p>
+            <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" class="btn" target="_blank">Visit My LinkedIn</a>
         </div>
+        <!-- Projects Section -->
         <div class="card">
             <h2>Projects</h2>
             <ul>
-                <li><strong>Project 1:</strong> Description of project 1</li>
-                <li><strong>Project 2:</strong> Description of project 2</li>
-                <li><strong>Project 3:</strong> Description of project 3</li>
+                <li><strong>Real-Time Network Visualization:</strong> Built a Python and Flask application for visualizing wired and wireless networks.</li>
+                <li><strong>Sales Prediction Model:</strong> Developed a machine learning model to predict sales using regression techniques.</li>
+                <li><strong>Customer Churn Analysis:</strong> Conducted in-depth analysis and visualizations to understand customer retention patterns.</li>
+            </ul>
+        </div>
+        <!-- Skills Section -->
+        <div class="card">
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming: Python, SQL</li>
+                <li>Data Visualization: Power BI, Matplotlib, Seaborn</li>
+                <li>Machine Learning: Scikit-learn, TensorFlow</li>
+                <li>Big Data: Hadoop, Spark</li>
+                <li>Tools: Excel, Flask</li>
             </ul>
         </div>
     </div>
+    <footer>
+        <p>© 2024 Varaprasad Sukala. Connect with me on <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" target="_blank">LinkedIn</a>.</p>
+    </footer>
 </body>
 </html>
