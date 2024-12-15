@@ -6,6 +6,7 @@
     <meta name="description" content="Portfolio of Varaprasad Sukala, Data Scientist">
     <title>Varaprasad Sukala | Data Scientist</title>
     <style>
+        /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -18,14 +19,26 @@
             color: white;
             padding: 1.5rem 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         header h1 {
             margin: 0;
             font-size: 2.5rem;
         }
-        header p {
-            font-size: 1.2rem;
-            margin: 0.5rem 0 0;
+        header nav {
+            margin-top: 1rem;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        header nav a:hover {
+            text-decoration: underline;
         }
         .container {
             padding: 2rem;
@@ -58,10 +71,32 @@
             border-radius: 5px;
             font-weight: bold;
             margin-top: 1rem;
+            cursor: pointer;
         }
         .btn:hover {
             background: #0056b3;
         }
+        /* Skills Progress Bars */
+        .skill {
+            margin: 0.5rem 0;
+        }
+        .skill .skill-name {
+            font-weight: bold;
+        }
+        .skill-bar {
+            background: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+            height: 20px;
+        }
+        .skill-bar .progress {
+            height: 100%;
+            background: #007bff;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        /* Footer */
         footer {
             text-align: center;
             margin-top: 2rem;
@@ -81,38 +116,87 @@
 <body>
     <header>
         <h1>Varaprasad Sukala</h1>
-        <p>Data Scientist | AI Enthusiast | Data Analyst</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+        </nav>
     </header>
-    <div class="container">
+    <div class="container" id="about">
         <!-- About Me Section -->
         <div class="card">
             <h2>About Me</h2>
             <p>Hello! I'm Varaprasad Sukala, a passionate Data Scientist with expertise in AI, machine learning, and data analytics. I enjoy solving complex problems and turning data into actionable insights.</p>
             <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" class="btn" target="_blank">Visit My LinkedIn</a>
         </div>
+    </div>
+    <div class="container" id="projects">
         <!-- Projects Section -->
         <div class="card">
             <h2>Projects</h2>
             <ul>
-                <li><strong>Real-Time Network Visualization:</strong> Built a Python and Flask application for visualizing wired and wireless networks.</li>
-                <li><strong>Sales Prediction Model:</strong> Developed a machine learning model to predict sales using regression techniques.</li>
-                <li><strong>Customer Churn Analysis:</strong> Conducted in-depth analysis and visualizations to understand customer retention patterns.</li>
+                <li><strong>Real-Time Network Visualization:</strong> <span class="btn" onclick="showDetails('project1')">Learn More</span></li>
+                <li><strong>Sales Prediction Model:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span></li>
+                <li><strong>Customer Churn Analysis:</strong> <span class="btn" onclick="showDetails('project3')">Learn More</span></li>
             </ul>
         </div>
+    </div>
+    <div class="container" id="skills">
         <!-- Skills Section -->
         <div class="card">
             <h2>Skills</h2>
-            <ul>
-                <li>Programming: Python, SQL</li>
-                <li>Data Visualization: Power BI, Matplotlib, Seaborn</li>
-                <li>Machine Learning: Scikit-learn, TensorFlow</li>
-                <li>Big Data: Hadoop, Spark</li>
-                <li>Tools: Excel, Flask</li>
-            </ul>
+            <div class="skill">
+                <div class="skill-name">Python</div>
+                <div class="skill-bar"><div class="progress" data-progress="90%"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">SQL</div>
+                <div class="skill-bar"><div class="progress" data-progress="85%"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Machine Learning</div>
+                <div class="skill-bar"><div class="progress" data-progress="80%"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Data Visualization</div>
+                <div class="skill-bar"><div class="progress" data-progress="75%"></div></div>
+            </div>
         </div>
     </div>
     <footer>
         <p>© 2024 Varaprasad Sukala. Connect with me on <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" target="_blank">LinkedIn</a>.</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Skills progress animation
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.progress').forEach(progress => {
+                const progressValue = progress.getAttribute('data-progress');
+                if (progress.getBoundingClientRect().top < window.innerHeight) {
+                    progress.style.width = progressValue;
+                }
+            });
+        });
+
+        // Show project details
+        function showDetails(projectId) {
+            const details = {
+                project1: "Real-Time Network Visualization: Built a Python and Flask application for visualizing wired and wireless networks.",
+                project2: "Sales Prediction Model: Developed a machine learning model to predict sales using regression techniques.",
+                project3: "Customer Churn Analysis: Conducted in-depth analysis and visualizations to understand customer retention patterns."
+            };
+            alert(details[projectId]);
+        }
+    </script>
 </body>
 </html>
