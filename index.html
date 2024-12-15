@@ -17,15 +17,20 @@
         header {
             background: #007bff;
             color: white;
-            padding: 1.5rem 0;
+            padding: 2rem 1rem;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+        }
+        header img {
+            margin-top: 1rem;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
         }
         header nav {
             margin-top: 1rem;
@@ -55,12 +60,21 @@
         .card h2 {
             margin-top: 0;
         }
-        .card ul {
-            list-style: none;
-            padding: 0;
+        .edu-section img, .work-section img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
-        .card ul li {
-            margin: 0.5rem 0;
+        .edu-section .edu-item, .work-section .work-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .edu-section .edu-item div, .work-section .work-item div {
+            margin-left: 10px;
         }
         .btn {
             display: inline-block;
@@ -76,27 +90,6 @@
         .btn:hover {
             background: #0056b3;
         }
-        /* Skills Progress Bars */
-        .skill {
-            margin: 0.5rem 0;
-        }
-        .skill .skill-name {
-            font-weight: bold;
-        }
-        .skill-bar {
-            background: #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 0.5rem;
-            height: 20px;
-        }
-        .skill-bar .progress {
-            height: 100%;
-            background: #007bff;
-            width: 0;
-            transition: width 1.5s ease;
-        }
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 2rem;
@@ -116,10 +109,12 @@
 <body>
     <header>
         <h1>Varaprasad Sukala</h1>
+        <img src="WhatsApp Image 2024-12-15 at 09.27.43_afea45e8.jpg" alt="Profile Picture">
         <nav>
             <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#work">Work Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
         </nav>
     </header>
     <div class="container" id="about">
@@ -130,37 +125,66 @@
             <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" class="btn" target="_blank">Visit My LinkedIn</a>
         </div>
     </div>
+    <div class="container" id="education">
+        <!-- Education Section -->
+        <div class="card">
+            <h2>Education</h2>
+            <div class="edu-section">
+                <div class="edu-item">
+                    <img src="coventry-uni-logo-1585101061.png" alt="School Logo">
+                    <div>
+                        <strong>MSc Data Science</strong><br>
+                        Coventry University (2023 - 2024)
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <img src=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.facultyplus.com%2Fwp-content%2Fuploads%2F2022%2F07%2FP.B.-siddhartha-college.png&f=1&nofb=1&ipt=4f798897ffc6f0525ebc8912182ece3e402c8330e0fc54eebd25cf0b167855db&ipo=images alt="School Logo">
+                    <div>
+                        <strong>Bachelor of Science</strong><br>
+                        PB Siddhartha College of Arts & Sciences(2018 - 2022)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="work">
+        <!-- Work Experience Section -->
+        <div class="card">
+            <h2>Work Experience</h2>
+            <div class="work-section">
+                <div class="work-item">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpromark365.com%2Fwp-content%2Fuploads%2F2023%2F01%2FBecketts-logo_400px.jpg&f=1&nofb=1&ipt=46ad5e1054d66465e6c65556e0e891cf9d8e74b4fbb71d7343a343cd239329e6&ipo=images" alt="Company Logo">
+                    <div>
+                        <strong>Business Systems Analyst</strong><br>
+                        Beckett's Foods (2024 - Current)
+                        <p>Managing core system functionality using SQL and managed first line support system.</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A2400%2F1*F6Ik7XYW_P8sjBCmFmTShQ.png&f=1&nofb=1&ipt=47713fe61529dbef042e1d113545c9fab8bbaa41a82fec0c8294df566dbd9f5a&ipo=images" alt="Company Logo">
+                    <div>
+                        <strong>Neatcom</strong><br>
+                        Data Analyst (2023-2024)
+                        <p>Analyzed vehicle data using SQL, performed statistical analysis, and presented insights to stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container" id="projects">
         <!-- Projects Section -->
         <div class="card">
             <h2>Projects</h2>
             <ul>
-                <li><strong>Intrusion Detection System</strong> <span class="btn" onclick="showDetails('project1')">Learn More</span><a href = "https://github.com/varaprasad1016/IntrusionDetectionSystem" class="btn" target="_blank">Source Code</a></li>
-                <li><strong>Sales Prediction Model:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span></li>
-                <li><strong>Customer Churn Analysis:</strong> <span class="btn" onclick="showDetails('project3')">Learn More</span></li>
+                <li>
+                    <strong>Intrusion Detection System:</strong> <span class="btn" onclick="showDetails('project1')">Learn More</span> 
+                    <a href="https://github.com/varaprasad1016/IntrusionDetectionSystem" class="btn" target="_blank">Source Code</a>
+                </li>
+                <li>
+                    <strong>Gamma Particle Classification:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span> 
+                    <a href="https://github.com/varaprasad1016/Classification-Of-Gamma-Particles-using-Classification-Techniques" class="btn" target="_blank">Source Code</a>
+                </li>
             </ul>
-        </div>
-    </div>
-    <div class="container" id="skills">
-        <!-- Skills Section -->
-        <div class="card">
-            <h2>Skills</h2>
-            <div class="skill">
-                <div class="skill-name">Python</div>
-                <div class="skill-bar"><div class="progress" data-progress="90%"></div></div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">SQL</div>
-                <div class="skill-bar"><div class="progress" data-progress="85%"></div></div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">Machine Learning</div>
-                <div class="skill-bar"><div class="progress" data-progress="80%"></div></div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">Data Visualization</div>
-                <div class="skill-bar"><div class="progress" data-progress="75%"></div></div>
-            </div>
         </div>
     </div>
     <footer>
@@ -178,22 +202,11 @@
             });
         });
 
-        // Skills progress animation
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.progress').forEach(progress => {
-                const progressValue = progress.getAttribute('data-progress');
-                if (progress.getBoundingClientRect().top < window.innerHeight) {
-                    progress.style.width = progressValue;
-                }
-            });
-        });
-
         // Show project details
         function showDetails(projectId) {
             const details = {
-                project1: "Real-Time Network Visualization: Built a Python and Flask application for visualizing wired and wireless networks.",
-                project2: "Sales Prediction Model: Developed a machine learning model to predict sales using regression techniques.",
-                project3: "Customer Churn Analysis: Conducted in-depth analysis and visualizations to understand customer retention patterns."
+                project1: "IntrusionDetectionSystem: Built a Python and Flask application with Machine Learning for Intrusion Detection over Networks.",
+                project2: "Gamma Particle Classification: Developed a machine learning model for classifying gamma particles using supervised learning.",
             };
             alert(details[projectId]);
         }
