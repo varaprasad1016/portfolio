@@ -76,19 +76,60 @@
         .edu-section .edu-item div, .work-section .work-item div {
             margin-left: 10px;
         }
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #0056b3;
+        /* From Uiverse.io by mobinkakei */
+<button class="btn">
+    <span class="btn-text-one">Hover me</span>
+    <span class="btn-text-two">Great!</span>
+</button> 
+/* From Uiverse.io by mobinkakei */
+
+<style>
+.btn {
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(to top, #00154c, #12376e, #23487f);
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.btn span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: top 0.5s;
+}
+
+.btn-text-one {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn-text-two {
+  position: absolute;
+  width: 100%;
+  top: 150%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn:hover .btn-text-one {
+  top: -100%;
+}
+
+.btn:hover .btn-text-two {
+  top: 50%;
+}
+</style>
+
         }
         footer {
             text-align: center;
@@ -184,10 +225,6 @@
                     <strong>Gamma Particle Classification:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span> 
                     <a href="https://github.com/varaprasad1016/Classification-Of-Gamma-Particles-using-Classification-Techniques" class="btn" target="_blank">Source Code</a>
                 </li>
-                 <li>
-                    <strong>Neat Log Updater:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span> 
-                    <a href="https://github.com/varaprasad1016/neatlogupdater" class="btn" target="_blank">Source Code</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -210,8 +247,7 @@
         function showDetails(projectId) {
             const details = {
                 project1: "IntrusionDetectionSystem: Built a Python and Flask application with Machine Learning for Intrusion Detection over Networks.",
-                project2: "Gamma Particle Classification: Developed a machine learning model for classifying gamma particles using supervised learning.",
-                project3: "Commercial Project."
+                project2: "Gamma Particle Classification: Developed a machine learning model for classifying gamma particles using supervised learning."
             };
             alert(details[projectId]);
         }
