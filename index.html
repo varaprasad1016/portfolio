@@ -76,10 +76,19 @@
         .edu-section .edu-item div, .work-section .work-item div {
             margin-left: 10px;
         }
-       
-}
-</style>
-
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #0056b3;
         }
         footer {
             text-align: center;
@@ -175,6 +184,10 @@
                     <strong>Gamma Particle Classification:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span> 
                     <a href="https://github.com/varaprasad1016/Classification-Of-Gamma-Particles-using-Classification-Techniques" class="btn" target="_blank">Source Code</a>
                 </li>
+                 <li>
+                    <strong>Neat Log Updater:</strong> <span class="btn" onclick="showDetails('project2')">Learn More</span> 
+                    <a href="https://github.com/varaprasad1016/neatlogupdater" class="btn" target="_blank">Source Code</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -197,7 +210,8 @@
         function showDetails(projectId) {
             const details = {
                 project1: "IntrusionDetectionSystem: Built a Python and Flask application with Machine Learning for Intrusion Detection over Networks.",
-                project2: "Gamma Particle Classification: Developed a machine learning model for classifying gamma particles using supervised learning."
+                project2: "Gamma Particle Classification: Developed a machine learning model for classifying gamma particles using supervised learning.",
+                project3: "Commercial Project."
             };
             alert(details[projectId]);
         }
