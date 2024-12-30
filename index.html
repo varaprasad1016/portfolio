@@ -412,12 +412,11 @@
     }
 }
 
-</style>
-<div class="container" id="sql-challenge">
+<div class="container">
     <div class="card">
-        <h2>SQL Challenge</h2>
-        <p>Solve this SQL query:</p>
-        <p><strong>Question:</strong> Retrieve all employees from the "employees" table where the "department" is "IT".</p>
+        <h2>SQL Interpreter Terminal</h2>
+        <p>Answer this SQL question in the terminal below:</p>
+        <p><strong>Question:</strong> Write an SQL query to retrieve all records from a table named "employees".</p>
         <div class="terminal-container">
             <div class="terminal_toolbar">
                 <div class="butt">
@@ -425,61 +424,76 @@
                     <button class="btn"></button>
                     <button class="btn"></button>
                 </div>
-                <p class="user">sql@terminal: ~</p>
-                <div class="add_tab">+</div>
+                <p class="user">vara@sql: ~</p>
+                <div class="add_tab">
+                    +
+                </div>
             </div>
             <div class="terminal_body">
-                <textarea id="sqlInput" class="terminal_cursor" placeholder="Write your SQL query here..."></textarea>
-                <button class="btn" onclick="executeSQL()">Run Query</button>
+                <div class="terminal_promt">
+                    <span class="terminal_user">sql@admin:</span>
+                    <span class="terminal_location">~</span>
+                    <span class="terminal_bling">$</span>
+                    <input id="sqlInput" type="text" class="terminal_cursor" placeholder="Enter your SQL query" />
+                </div>
                 <div id="sqlResponse"></div>
+                <button id="runQueryButton" class="resume-btn" onclick="runSQLQuery()">Run Query</button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.min.js"></script>
-<script>
-    let db;
-
-    // Initialize an in-memory SQLite database
-    async function initSQL() {
-        const SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}` });
-        db = new SQL.Database();
-        
-        // Create a sample table and insert data
-        db.run(`
-            CREATE TABLE employees (id INTEGER, name TEXT, department TEXT);
-            INSERT INTO employees (id, name, department) VALUES (1, 'Alice', 'IT');
-            INSERT INTO employees (id, name, department) VALUES (2, 'Bob', 'HR');
-            INSERT INTO employees (id, name, department) VALUES (3, 'Charlie', 'IT');
-        `);
+<style>
+    .terminal_cursor {
+        color: #fff;
+        border: none;
+        background: none;
+        outline: none;
+        width: 100%;
+        font-family: monospace;
+        font-size: 14px;
+        color: white;
+        background-color: transparent;
+        border-bottom: 2px solid #fff;
+        padding: 5px;
     }
 
-    // Function to execute user SQL and validate
-    function executeSQL() {
-        const sqlInput = document.getElementById("sqlInput").value;
-        const sqlResponse = document.getElementById("sqlResponse");
+    .resume-btn {
+        margin-top: 20px;
+        display: block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
 
-        try {
-            const correctQuery = "SELECT * FROM employees WHERE department = 'IT';";
-            const result = db.exec(sqlInput);
+    .resume-btn:hover {
+        background-color: #45a049;
+    }
 
-            // Check if the user's query matches the expected result
-            const userResult = JSON.stringify(result);
-            const correctResult = JSON.stringify(db.exec(correctQuery));
-            
-            if (userResult === correctResult) {
-                sqlResponse.innerHTML = "<p style='color: green;'>Correct! Here's the result:</p><pre>" + JSON.stringify(result, null, 2) + "</pre>";
-            } else {
-                sqlResponse.innerHTML = "<p style='color: red;'>Incorrect query. Try again.</p>";
-            }
-        } catch (e) {
-            sqlResponse.innerHTML = "<p style='color: red;'>Error: " + e.message + "</p>";
+    #sqlResponse {
+        color: #ff5722;
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+    function runSQLQuery() {
+        const input = document.getElementById('sqlInput').value.toLowerCase().trim();
+        const response = document.getElementById('sqlResponse');
+
+        // Check if the query is correct
+        if (input === "select * from employees;" || input === "select * from employees") {
+            window.location.href = "#"; // Replace with your target link later
+        } else {
+            response.innerHTML = "Incorrect query. Try again.";
         }
     }
-
-    // Initialize the database on page load
-    initSQL();
 </script>
 
     <footer>
