@@ -413,6 +413,74 @@
 }
 
 </style>
+<div class="container" id="sql-challenge">
+    <div class="card">
+        <h2>SQL Challenge</h2>
+        <p>Solve this SQL query:</p>
+        <p><strong>Question:</strong> Retrieve all employees from the "employees" table where the "department" is "IT".</p>
+        <div class="terminal-container">
+            <div class="terminal_toolbar">
+                <div class="butt">
+                    <button class="btn btn-color"></button>
+                    <button class="btn"></button>
+                    <button class="btn"></button>
+                </div>
+                <p class="user">sql@terminal: ~</p>
+                <div class="add_tab">+</div>
+            </div>
+            <div class="terminal_body">
+                <textarea id="sqlInput" class="terminal_cursor" placeholder="Write your SQL query here..."></textarea>
+                <button class="btn" onclick="executeSQL()">Run Query</button>
+                <div id="sqlResponse"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.min.js"></script>
+<script>
+    let db;
+
+    // Initialize an in-memory SQLite database
+    async function initSQL() {
+        const SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}` });
+        db = new SQL.Database();
+        
+        // Create a sample table and insert data
+        db.run(`
+            CREATE TABLE employees (id INTEGER, name TEXT, department TEXT);
+            INSERT INTO employees (id, name, department) VALUES (1, 'Alice', 'IT');
+            INSERT INTO employees (id, name, department) VALUES (2, 'Bob', 'HR');
+            INSERT INTO employees (id, name, department) VALUES (3, 'Charlie', 'IT');
+        `);
+    }
+
+    // Function to execute user SQL and validate
+    function executeSQL() {
+        const sqlInput = document.getElementById("sqlInput").value;
+        const sqlResponse = document.getElementById("sqlResponse");
+
+        try {
+            const correctQuery = "SELECT * FROM employees WHERE department = 'IT';";
+            const result = db.exec(sqlInput);
+
+            // Check if the user's query matches the expected result
+            const userResult = JSON.stringify(result);
+            const correctResult = JSON.stringify(db.exec(correctQuery));
+            
+            if (userResult === correctResult) {
+                sqlResponse.innerHTML = "<p style='color: green;'>Correct! Here's the result:</p><pre>" + JSON.stringify(result, null, 2) + "</pre>";
+            } else {
+                sqlResponse.innerHTML = "<p style='color: red;'>Incorrect query. Try again.</p>";
+            }
+        } catch (e) {
+            sqlResponse.innerHTML = "<p style='color: red;'>Error: " + e.message + "</p>";
+        }
+    }
+
+    // Initialize the database on page load
+    initSQL();
+</script>
 
     <footer>
     <p>© 2024 Varaprasad Sukala</p>
