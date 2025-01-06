@@ -273,28 +273,30 @@
         <div class="card">
             <h2>Resume Terminal</h2>
             <p>Answer this in the terminal below and I'll show you my resume!</p>
-            <div class="terminal-container">
-                <div class="terminal_toolbar">
-                    <div class="butt">
-                        <button class="btn btn-color"></button>
-                        <button class="btn"></button>
-                        <button class="btn"></button>
-                    </div>
-                    <p class="user">vara@admin: ~</p>
-                    <div class="add_tab">
-                        +
-                    </div>
-                </div>
-                <div class="terminal_body">
-                    <div class="terminal_promt">
-                        <span class="terminal_user">vara@admin:</span>
-                        <span class="terminal_location">~</span>
-                        <span class="terminal_bling">$</span>
-                        <input id="userInput" type="text" class="terminal_cursor" placeholder="Enter your name" oninput="checkInput()" />
-                    </div>
-                    <div id="response"></div>
-                    <button id="resumeButton" class="resume-btn" onclick="openResume()">View Resume</button>
-                </div>
+           <div class="terminal-container">
+    <div class="terminal_toolbar">
+        <div class="butt">
+            <button class="btn btn-color"></button>
+            <button class="btn"></button>
+            <button class="btn"></button>
+        </div>
+        <p class="user">sql@admin: ~</p>
+        <div class="add_tab">
+            +
+        </div>
+    </div>
+    <div class="terminal_body">
+        <div class="terminal_promt">
+            <span class="terminal_user">sql@admin:</span>
+            <span class="terminal_location">~</span>
+            <span class="terminal_bling">$</span>
+            <input id="sqlInput" type="text" class="terminal_cursor" placeholder="Enter your SQL query" />
+        </div>
+        <div id="sqlResponse"></div>
+        <button id="runQueryButton" class="resume-btn" style="display: none;">Run Query</button>
+    </div>
+</div>
+
             </div>
         </div>
     </div>
@@ -500,15 +502,45 @@
     function runSQLQuery() {
         const input = document.getElementById('sqlInput').value.toLowerCase().trim();
         const response = document.getElementById('sqlResponse');
+        const resumeButton = document.getElementById('runQueryButton');
 
-        // Check if the query is correct
+        // Simulated response for correct SQL query
         if (input === "select * from employees;" || input === "select * from employees") {
-            window.location.href = "#"; // Replace with your target link later
+            response.innerHTML = `
+                <p style="color: lightgreen;">Query executed successfully!</p>
+                <p>Results:</p>
+                <table style="color: white; border: 1px solid white; border-collapse: collapse;">
+                    <tr>
+                        <th style="border: 1px solid white; padding: 5px;">ID</th>
+                        <th style="border: 1px solid white; padding: 5px;">Name</th>
+                        <th style="border: 1px solid white; padding: 5px;">Position</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid white; padding: 5px;">1</td>
+                        <td style="border: 1px solid white; padding: 5px;">Alice</td>
+                        <td style="border: 1px solid white; padding: 5px;">Manager</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid white; padding: 5px;">2</td>
+                        <td style="border: 1px solid white; padding: 5px;">Bob</td>
+                        <td style="border: 1px solid white; padding: 5px;">Developer</td>
+                    </tr>
+                </table>
+            `;
+
+            // Show the resume button
+            resumeButton.innerText = "Download Resume";
+            resumeButton.onclick = function () {
+                window.location.href = "path/to/resume.pdf"; // Replace with actual resume link
+            };
+            resumeButton.style.display = "block";
         } else {
-            response.innerHTML = "Incorrect query. Try again.";
+            response.innerHTML = `<p style="color: red;">Incorrect query. Please try again.</p>`;
+            resumeButton.style.display = "none";
         }
     }
 </script>
+
 
     <footer>
     <p>© 2024 Varaprasad Sukala</p>
