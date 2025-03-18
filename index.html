@@ -286,44 +286,5 @@
         </a>
     </div>
 </footer>
-<script>
-        // Smooth scrolling
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Show project details
-        function showDetails(projectId) {
-            const details = {
-                project1: "IntrusionDetectionSystem: Built a Python and Flask application with Machine Learning for Intrusion Detection over Networks.",
-                project2: "Gamma Particle Classification: Developed a machine learning model for classifying gamma particles using supervised learning.",
-                project3: "Commercial Project."
-            };
-            alert(details[projectId]);
-        }
-        // Function to check the input in the terminal
-        function checkInput() {
-            const input = document.getElementById('userInput').value.toLowerCase();
-            const response = document.getElementById('response');
-            const resumeButton = document.getElementById('resumeButton');
-            
-            if(input.includes('varaprasad')) {
-                response.innerHTML = 'Welcome Varaprasad! You can now view your resume.';
-                resumeButton.classList.add('show');
-            } else {
-                response.innerHTML = '';
-                resumeButton.classList.remove('show');
-            }
-        }
-
-        // Function to open the resume
-        function openResume() {
-            window.open('resume.pdf', '_blank');
-        }
-    </script>
 </body>
 </html>
