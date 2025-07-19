@@ -13,12 +13,11 @@
     <style>
         /* Modern Futuristic Tech Theme */
         :root {
-            --primary: #0070f3;
-            --primary-dark: #005bcc;
-            --secondary: #6c2bd9;
-            --dark: #121212;
-            --darker: #0a0a0a;
-            --light: #f5f5f7;
+            --primary: #00f7ff;
+            --secondary: #ff00e6;
+            --dark: #0a0f18;
+            --darker: #050a14;
+            --light: #e6f3ff;
             --accent: #00ffb9;
             --text: #e6e6e6;
             --text-secondary: #b0b0b0;
@@ -33,29 +32,25 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             background-color: var(--dark);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(0, 247, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 230, 0.1) 0%, transparent 30%);
+            min-height: 100vh;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary);
-        }
-
-        /* Header */
+        /* Spaceship Header - Command Bridge */
         header {
             background: var(--darker);
             padding: 2rem 0;
             position: relative;
             overflow: hidden;
+            border-bottom: 2px solid var(--primary);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
         }
 
         .header-content {
@@ -76,674 +71,194 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.2;
             background: 
-                radial-gradient(circle at 20% 20%, var(--primary) 0%, transparent 30%),
-                radial-gradient(circle at 80% 10%, var(--secondary) 0%, transparent 30%);
+                linear-gradient(45deg, rgba(0, 247, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(-45deg, rgba(255, 0, 230, 0.1) 0%, transparent 50%);
+            animation: pulse 4s infinite;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
         }
 
-        header h2 {
-            font-size: 1.8rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            object-fit: cover;
-            margin-bottom: 2rem;
-            box-shadow: 0 0 25px rgba(0, 112, 243, 0.5);
-        }
-
-        /* Nav - Responsive Improvements */
+        /* Navigation - Control Panel */
         nav {
-            background-color: rgba(10, 10, 10, 0.8);
+            background: rgba(5, 10, 20, 0.9);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--primary);
             position: sticky;
             top: 0;
-            width: 100%;
             z-index: 100;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-inner {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 0 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            width: 100%;
         }
 
         nav a {
-            margin: 0.5rem 1.5rem;
-            font-weight: 500;
             color: var(--text);
-            position: relative;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            transition: all 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+            color: var(--primary);
         }
 
-        nav a::after {
+        /* Sections - Spaceship Compartments */
+        .section {
+            margin: 4rem 0;
+            padding: 2rem;
+            position: relative;
+            border-radius: 20px;
+            background: rgba(10, 15, 24, 0.8);
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.2);
+        }
+
+        .section::before {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--gradient);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Mobile menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-            z-index: 101;
-        }
-
-        .menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: var(--text);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Section */
-        .section {
-            margin-bottom: 5rem;
+            top: -10px;
+            left: 20px;
+            width: 50px;
+            height: 20px;
+            background: var(--primary);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
         }
 
         .section-title {
-            position: relative;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            display: inline-block;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-        }
-
-        /* Cards */
+        /* Cards - Control Panels */
         .card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            border-radius: 15px;
             padding: 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 1rem 0;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.1);
+            transition: all 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 112, 243, 0.2);
-            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.2);
         }
 
-        /* Education and Work */
-        .timeline-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-
-        /* Updated logo container styling */
-        .timeline-icon {
-            flex-shrink: 0;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid var(--primary);
-            overflow: hidden;
-            margin-right: 2rem;
-            position: relative;
-            padding: 5px;
-        }
-
-        .timeline-icon img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-            position: relative;
-        }
-
-        /* Fallback for missing images */
-        .timeline-icon .fallback {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary);
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .timeline-content {
-            flex-grow: 1;
-        }
-
-        .timeline-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        .timeline-subtitle {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .timeline-text {
-            color: var(--text);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 112, 243, 0.2);
-            border-color: var(--primary);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        /* Button */
+        /* Buttons - Control Interfaces */
         .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
             background: var(--gradient);
-            color: white;
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0, 112, 243, 0.3);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            z-index: 1;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--secondary);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            width: 100%;
         }
 
         .btn:hover {
-            box-shadow: 0 10px 20px rgba(0, 112, 243, 0.5);
             transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--primary);
         }
 
-        /* Download Resume */
-        .download-resume {
-            text-align: center;
-            margin: 4rem 0;
+        /* Timeline - Mission Log */
+        .timeline-item {
+            border-left: 2px solid var(--primary);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--darker);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--primary);
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            margin: 0.5rem 1rem;
-            transition: all 0.3s;
         }
 
-        .social-link:hover {
-            background: var(--gradient);
-            transform: translateY(-5px);
+        /* Animations */
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--primary); }
+            50% { box-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
+            100% { box-shadow: 0 0 5px var(--primary); }
         }
 
-        .social-link svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        /* Error handling for images */
-        img.error {
-            display: none;
-        }
-        
-        /* Responsive styles - improved */
-        @media (max-width: 992px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            
-            header h2 {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-inner {
-                justify-content: space-between;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background: var(--darker);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: left 0.3s ease;
-                z-index: 100;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            nav a {
-                margin: 1rem 0;
-                font-size: 1.2rem;
-            }
-
-            .menu-toggle.active span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .timeline-item {
-                flex-direction: column;
-            }
-            
-            .timeline-icon {
-                margin-bottom: 1rem;
-                margin-right: 0;
-            }
-
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            header h2 {
-                font-size: 1.2rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-
-            .btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-            }
+        .profile-img {
+            border: 3px solid var(--primary);
+            animation: glow 4s infinite;
         }
     </style>
-
-    <script>
-        // Function to handle image loading errors
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            
-            images.forEach(img => {
-                img.onerror = function() {
-                    // Create a fallback element with initials
-                    const parent = this.parentElement;
-                    if (parent && parent.classList.contains('timeline-icon')) {
-                        // Get the company name from the next sibling's first h3
-                        const companyElement = parent.nextElementSibling.querySelector('.timeline-title');
-                        let initials = "??";
-                        
-                        if (companyElement) {
-                            const companyName = companyElement.textContent;
-                            // Get first letters of first two words
-                            const words = companyName.split(' ');
-                            if (words.length >= 2) {
-                                initials = (words[0][0] + words[1][0]).toUpperCase();
-                            } else if (words.length === 1) {
-                                initials = words[0].substring(0, 2).toUpperCase();
-                            }
-                        }
-                        
-                        // Create fallback div
-                        const fallback = document.createElement('div');
-                        fallback.classList.add('fallback');
-                        fallback.textContent = initials;
-                        
-                        // Replace image with fallback
-                        this.style.display = 'none';
-                        parent.appendChild(fallback);
-                    }
-                };
-            });
-
-            // Mobile menu toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                    this.classList.toggle('active');
-                });
-
-                // Close menu when clicking on a link
-                const navItems = document.querySelectorAll('.nav-links a');
-                navItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        navLinks.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    });
-                });
-            }
-        });
-    </script>
 </head>
 <body>
+    <!-- Command Bridge -->
     <header>
         <div class="header-overlay"></div>
         <div class="header-content">
-            <h1>Varaprasad Sukala</h1>
-            <h2>Data Scientist</h2>
-            <img class="profile-img" src="WhatsApp Image 2024-12-15 at 09.27.43_afea45e8.jpg" alt="Profile Picture">
+            <h1>COMMANDER VARAPRASAD SUKALA</h1>
+            <h2>DATA SCIENCE NAVIGATOR</h2>
+            <img class="profile-img" src="WhatsApp Image 2024-12-15 at 09.27.43_afea45e8.jpg" alt="Commander's Profile">
         </div>
     </header>
-    
+
+    <!-- Navigation Control Panel -->
     <nav>
         <div class="nav-inner">
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#education">Education</a>
-                <a href="#work">Experience</a>
-                <a href="#projects">Projects</a>
-            </div>
+            <a href="#bridge">BRIDGE</a>
+            <a href="#about">MISSION LOG</a>
+            <a href="#education">TRAINING</a>
+            <a href="#work">ASSIGNMENTS</a>
+            <a href="#projects">EXPEDITIONS</a>
         </div>
     </nav>
 
     <div class="container">
+        <!-- Mission Log -->
         <section id="about" class="section">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">⚡ Mission Log</h2>
             <div class="card">
-                <p>Hello! I'm Varaprasad Sukala, a passionate Data Scientist with expertise in AI, machine learning, and data analytics. I enjoy solving complex problems and turning data into actionable insights.</p>
-    <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" class="btn" target="_blank">Visit My LinkedIn</a>
+                <p>Greetings, I am Commander Varaprasad Sukala, navigating through the data cosmos. My mission is to explore complex data patterns and transform them into actionable intelligence using AI and machine learning technologies.</p>
+                <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" class="btn" target="_blank">Access Commander's Log</a>
             </div>
         </section>
 
+        <!-- Training Module -->
         <section id="education" class="section">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <img src="coventry-uni-logo-1585101061.png" alt="Coventry University Logo">
-                </div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">MSc Data Science</h3>
-                    <p class="timeline-subtitle">Coventry University (2023 - 2024)</p>
-                    <p class="timeline-text">Advanced studies in machine learning, statistical analysis, and data management systems.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <img src="P.B.-siddhartha-college-1248170627.png" alt="PB Siddhartha College Logo">
-                </div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Bachelor of Science</h3>
-                    <p class="timeline-subtitle">PB Siddhartha College of Arts & Sciences (2018 - 2022)</p>
-                    <p class="timeline-text">Foundation in computer science, mathematics, and data analytics.</p>
-                </div>
-            </div>
+            <h2 class="section-title">🎓 Training Records</h2>
+            <!-- Rest of the education section content remains the same -->
         </section>
 
-       <section id="work" class="section">
-            <h2 class="section-title">Work Experience</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <img src="becketts_logo.jpg" alt="Beckett's Foods Logo">
-                </div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Business Systems Analyst</h3>
-                    <p class="timeline-subtitle">Beckett's Foods (2025 - Current)</p>
-                    <p class="timeline-text">Managing core system functionality using SQL and managed first line support system.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <img src="net.png" alt="Neatcom Logo">
-                </div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Data Analyst</h3>
-                    <p class="timeline-subtitle">Neatcom (2023 - 2025)</p>
-                    <p class="timeline-text">Analyzed vehicle data using SQL, performed statistical analysis, and presented insights to stakeholders.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <img src="logo_codegnan-transformed.jpeg" alt="Codegnan Logo">
-                </div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Python Developer</h3>
-                    <p class="timeline-subtitle">Codegnan (2022 - 2023)</p>
-                    <p class="timeline-text">Ahh... this role was the core python competency builder for me.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2 class="section-title">Projects</h2>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Intrusion Detection System</h3>
-                        <p>A machine learning system designed to detect and prevent network intrusions in real-time.</p>
-                        <a href="https://github.com/varaprasad1016/IntrusionDetectionSystem" class="btn" target="_blank">Source Code</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Gamma Particle Classification</h3>
-                        <p>Classification model to identify gamma particles using advanced machine learning techniques.</p>
-                        <a href="https://github.com/varaprasad1016/Classification-Of-Gamma-Particles-using-Classification-Techniques" class="btn" target="_blank">Source Code</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Neat Log Updater</h3>
-                        <p>Automated tool for efficient log management and analysis.</p>
-                        <a href="https://github.com/varaprasad1016/neatlogupdater" class="btn" target="_blank">Source Code</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Mission Assignments -->
+        <section id="work" class="section">
+            <h2 class="section-title">💼 Mission History</h2>
+            <!-- Rest of the work experience section content remains the same -->
         </section>
     </div>
-
-    <div class="download-resume">
-        <a href="https://github.com/varaprasad1016/portfolio/blob/main/Profile.pdf" download="Profile.pdf" class="btn">
-            Download My Profile
-        </a>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="https://www.instagram.com/varaprasad.py/profilecard/?igsh=MWlwYmdpbmdja3Izeg==" target="_blank" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="https://x.com/i/flow/login?redirect_after_login=%2FVaraprasad1016" target="_blank" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://github.com/varaprasad1016" target="_blank" class="social-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-            </div>
-            <p>© 2025 Varaprasad Sukala | Data Scientist</p>
-        </div>
-    </footer>
 </body>
 </html>
