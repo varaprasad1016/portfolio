@@ -763,22 +763,28 @@
                     <h2>Things I've <em>built</em></h2>
                 </div>
                 <div class="projects">
+                    <a class="project reveal" href="https://github.com/varaprasad1016/SQL-Mystery-by-Vara" target="_blank" rel="noopener">
+                        <p class="project-num mono">P—01 &nbsp;/&nbsp; SQL · Education</p>
+                        <h3 class="project-title">The Ashvale Files: SQL Mystery</h3>
+                        <p class="project-desc">A browser-based detective game that teaches SQL over 42 chapters, running real SQLite in WebAssembly and grading answers by comparing result sets.</p>
+                        <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+                    </a>
+                    <a class="project reveal" href="https://github.com/varaprasad1016/SriyaWMS" target="_blank" rel="noopener">
+                        <p class="project-num mono">P—02 &nbsp;/&nbsp; Business systems · Python</p>
+                        <h3 class="project-title">Warehouse Management System</h3>
+                        <p class="project-desc">Flask and SQLite warehouse system with role-based dashboards, barcode scanning, order and stock workflows, inventory reports and pandas sales-trend analysis.</p>
+                        <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+                    </a>
                     <a class="project reveal" href="https://github.com/varaprasad1016/IntrusionDetectionSystem" target="_blank" rel="noopener">
-                        <p class="project-num mono">P—01 &nbsp;/&nbsp; Security · ML</p>
-                        <h3 class="project-title">Intrusion Detection System</h3>
-                        <p class="project-desc">A machine learning system designed to detect and prevent network intrusions in real-time.</p>
+                        <p class="project-num mono">P—03 &nbsp;/&nbsp; Machine learning</p>
+                        <h3 class="project-title">Network Intrusion Detection</h3>
+                        <p class="project-desc">Classifies NSL-KDD network traffic as normal or anomalous using chi-square tests, PCA and ensemble models in scikit-learn.</p>
                         <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
                     </a>
-                    <a class="project reveal" href="https://github.com/varaprasad1016/Classification-Of-Gamma-Particles-using-Classification-Techniques" target="_blank" rel="noopener">
-                        <p class="project-num mono">P—02 &nbsp;/&nbsp; Classification</p>
-                        <h3 class="project-title">Gamma Particle Classification</h3>
-                        <p class="project-desc">Classification model to identify gamma particles using advanced machine learning techniques.</p>
-                        <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-                    </a>
-                    <a class="project reveal" href="https://github.com/varaprasad1016/neatlogupdater" target="_blank" rel="noopener">
-                        <p class="project-num mono">P—03 &nbsp;/&nbsp; Automation</p>
-                        <h3 class="project-title">Neat Log Updater</h3>
-                        <p class="project-desc">Automated tool for efficient log management and analysis.</p>
+                    <a class="project reveal" href="https://github.com/varaprasad1016/restaurant-ERP" target="_blank" rel="noopener">
+                        <p class="project-num mono">P—04 &nbsp;/&nbsp; ERP · DevOps</p>
+                        <h3 class="project-title">Self-Hosted Restaurant ERP</h3>
+                        <p class="project-desc">One-command deployment of ERPNext, Frappe HR and URY POS with SumUp payments, kiosk tills, automated backups and cash-drawer control.</p>
                         <span class="project-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
                     </a>
                 </div>
@@ -843,9 +849,10 @@
             { "degree": "Bachelor's degree, Data Science", "school": "Parvathaneni Brahmayya Siddhartha College of Arts & Science", "period": "2018 – 2022" }
         ],
         "projects": [
-            { "name": "Intrusion Detection System", "url": "https://github.com/varaprasad1016/IntrusionDetectionSystem", "description": "A machine learning system designed to detect and prevent network intrusions in real-time." },
-            { "name": "Gamma Particle Classification", "url": "https://github.com/varaprasad1016/Classification-Of-Gamma-Particles-using-Classification-Techniques", "description": "Classification model to identify gamma particles using advanced machine learning techniques." },
-            { "name": "Neat Log Updater", "url": "https://github.com/varaprasad1016/neatlogupdater", "description": "Automated tool for efficient log management and analysis." }
+            { "name": "The Ashvale Files: SQL Mystery", "url": "https://github.com/varaprasad1016/SQL-Mystery-by-Vara", "description": "Detective game teaching SQL over 42 chapters; runs real SQLite in WebAssembly and grades by result set." },
+            { "name": "Warehouse Management System", "url": "https://github.com/varaprasad1016/SriyaWMS", "description": "Flask and SQLite warehouse system: role-based dashboards, barcode scanning, stock workflows, pandas trends." },
+            { "name": "Network Intrusion Detection", "url": "https://github.com/varaprasad1016/IntrusionDetectionSystem", "description": "Classifies NSL-KDD network traffic as normal or anomalous with chi-square tests, PCA and ensemble models." },
+            { "name": "Self-Hosted Restaurant ERP", "url": "https://github.com/varaprasad1016/restaurant-ERP", "description": "One-command ERPNext, Frappe HR and URY POS deployment with SumUp payments, kiosk tills and backups." }
         ],
         "skills": ["Transact-SQL (T-SQL)", "Microsoft SQL Server", "IT Business Analysis", "Python", "Machine Learning", "Statistical Analysis", "Data Analytics", "Artificial Intelligence"],
         "certifications": [
@@ -1034,8 +1041,8 @@
 
             // `need` is the height of the first block, so a heading never ends a page on its own.
             const section = (title, need) => {
-                ensure(8.8 + need);
-                y += 6;
+                ensure(8.2 + need);
+                y += 5.4;
                 style('bold', 9.5, ACCENT);
                 doc.text(title.toUpperCase(), MX, y, { charSpace: 0.5 });
                 y += 2;
@@ -1103,7 +1110,7 @@
 
             section('Experience', resume.experience.length ? roleNeed(resume.experience[0]) : 0);
             resume.experience.forEach((role, i) => {
-                if (i) y += 2.2;
+                if (i) y += 1.8;
                 ensure(roleNeed(role));
                 heading(role.title, roleRight(role), 10.5);
                 flow([{ label: role.org }, { label: role.location }].filter(item => item.label), 9.5, MUTED);
@@ -1112,7 +1119,7 @@
 
             section('Education', resume.education.length ? eduNeed(resume.education[0]) : 0);
             resume.education.forEach((ed, i) => {
-                if (i) y += 2.2;
+                if (i) y += 1.8;
                 ensure(eduNeed(ed));
                 heading(ed.degree, [ed.period], 10);
                 flow([{ label: ed.school }], 9.5, MUTED);
@@ -1120,7 +1127,7 @@
 
             section('Projects', resume.projects.length ? projectNeed(resume.projects[0]) : 0);
             resume.projects.forEach((project, i) => {
-                if (i) y += 2.2;
+                if (i) y += 1.8;
                 ensure(projectNeed(project));
                 const { labelW, lines } = projectLines(project);
                 lines.forEach((line, j) => {
