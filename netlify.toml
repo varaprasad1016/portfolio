@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[build.environment]
+  # Node 18 is end-of-life; pin the current LTS line
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
