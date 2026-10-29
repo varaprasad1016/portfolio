@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Varaprasad Sukala | Digital card</title>
+    <meta name="description" content="Varaprasad Sukala, Forward Deployed AI Engineer. Portfolio, résumé and contact details.">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0f0f0d">
+    <meta property="og:title" content="Varaprasad Sukala | Digital card">
+    <meta property="og:description" content="Portfolio, résumé and contact details.">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0f0f0d;
+            --bg-raised: #171714;
+            --line: rgba(236, 231, 220, 0.1);
+            --line-strong: rgba(236, 231, 220, 0.22);
+            --text: #ece7dc;
+            --muted: #918c80;
+            --accent: #c9e27c;
+            --accent-ink: #1a1c10;
+            --display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+            --sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, monospace;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100svh;
+            display: grid;
+            place-items: center;
+            padding: max(1.5rem, env(safe-area-inset-top)) 1rem max(1.5rem, env(safe-area-inset-bottom));
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+
+        .card {
+            width: 100%;
+            max-width: 26rem;
+            padding: 2rem 1.5rem 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            background: var(--bg-raised);
+            text-align: center;
+        }
+
+        .avatar {
+            display: block;
+            width: 7.5rem;
+            height: 7.5rem;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .place {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--accent); }
+
+        h1 {
+            margin-top: 0.6rem;
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(2.6rem, 13vw, 3.4rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        h1 span { color: var(--accent); }
+
+        .role { margin-top: 0.9rem; font-weight: 600; font-size: 1.05rem; }
+        .org { color: var(--muted); font-size: 0.95rem; }
+
+        .actions { display: grid; gap: 0.7rem; margin-top: 1.75rem; }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 3.25rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+        }
+
+        .btn:active { transform: scale(0.98); }
+        .btn svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+        .btn:hover { border-color: var(--text); }
+
+        .btn.solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+        .btn.solid:hover { background: var(--text); border-color: var(--text); }
+
+        .btn[aria-busy="true"] { opacity: 0.6; cursor: progress; }
+
+        /* Arriving from the wallet pass's "Résumé" link (card.html#resume) */
+        .btn.is-target { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(201, 226, 124, 0.18); }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .links a, .links button {
+            display: grid;
+            justify-items: center;
+            gap: 0.35rem;
+            padding: 0.6rem 0.25rem;
+            border-radius: 14px;
+            border: 0;
+            background: none;
+            color: var(--text);
+            font: 500 0.75rem var(--sans);
+            cursor: pointer;
+            transition: background 0.25s var(--ease);
+        }
+
+        .links a:hover, .links button:hover { background: rgba(236, 231, 220, 0.06); }
+
+        .links svg { width: 1.35rem; height: 1.35rem; }
+
+        .note {
+            margin-top: 1.25rem;
+            font-family: var(--mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <img class="avatar" src="avatar.jpg" width="600" height="600" alt="Varaprasad Sukala">
+        <p class="place"><span class="dot" aria-hidden="true"></span><span id="location">Coventry, UK</span></p>
+        <h1>Varaprasad<br><span>Sukala</span></h1>
+        <p class="role" id="role">Forward Deployed AI Engineer</p>
+        <p class="org" id="org">Beckett's Foods</p>
+
+        <div class="actions">
+            <a class="btn solid" href="./">
+                View full portfolio
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <a class="btn" id="resume" href="Profile.pdf" download data-resume>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+                Download résumé (PDF)
+            </a>
+        </div>
+
+        <nav class="links" aria-label="Contact">
+            <a id="email-link" href="mailto:sukalavaraprasad@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/varaprasadsukalathedatascientist" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/varaprasad1016" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 007.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 015.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+                GitHub
+            </a>
+            <button type="button" id="save-contact">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 21c0-3.9 3.1-7 7-7 1.3 0 2.5.3 3.5.9M19 15v6M16 18h6"/></svg>
+                Save contact
+            </button>
+        </nav>
+
+        <p class="note">The résumé is generated live, so its dates and durations are always current.</p>
+    </main>
+
+    <script src="resume.js"></script>
+    <script>
+        (function () {
+            const data = window.PortfolioResume && window.PortfolioResume.resume;
+            const portfolioUrl = new URL('./', location.href).href;
+
+            // Keep the card in step with the résumé data: current role, company and email.
+            const current = data && (data.experience.find(r => r.end == null) || data.experience[0]);
+            if (current) {
+                document.getElementById('role').textContent = current.title;
+                document.getElementById('org').textContent = current.org.replace(/\s+Ltd\.?$/i, '');
+            }
+            if (data && data.email) document.getElementById('email-link').href = 'mailto:' + data.email;
+
+            // "Save contact": a vCard built from the same data.
+            const esc = v => String(v).replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/([,;])/g, '\\$1');
+            document.getElementById('save-contact').addEventListener('click', () => {
+                const name = (data && data.name) || 'Varaprasad Sukala';
+                const [first, ...rest] = name.split(' ');
+                const lines = [
+                    'BEGIN:VCARD',
+                    'VERSION:3.0',
+                    `N:${esc(rest.join(' '))};${esc(first)};;;`,
+                    `FN:${esc(name)}`,
+                    current && `TITLE:${esc(current.title)}`,
+                    current && `ORG:${esc(current.org.replace(/\s+Ltd\.?$/i, ''))}`,
+                    data && data.email && `EMAIL;TYPE=INTERNET:${data.email}`,
+                    `URL:${portfolioUrl}`,
+                    ...((data && data.links) || []).map(l => `URL:${l.url}`),
+                    data && data.location && `ADR;TYPE=WORK:;;;${esc(data.location.split(',')[0])};;;${esc(data.location.split(',').pop().trim())}`,
+                    'END:VCARD',
+                ].filter(Boolean);
+                const blob = new Blob([lines.join('\r\n') + '\r\n'], { type: 'text/vcard;charset=utf-8' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = name.replace(/\s+/g, '-') + '.vcf';
+                document.body.append(a);
+                a.click();
+                a.remove();
+                setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+            });
+
+            // Arriving from the wallet pass's résumé link: point at the download button.
+            if (location.hash === '#resume') {
+                const button = document.getElementById('resume');
+                button.classList.add('is-target');
+                button.focus({ preventScroll: true });
+            }
+        })();
+    </script>
+</body>
+</html>
