@@ -17,7 +17,7 @@
             { "label": "github.com/varaprasad1016", "url": "https://github.com/varaprasad1016" }
         ],
         "summary": [
-            "As a Forward Deployed AI Engineer at Beckett's Foods, my role primarily revolves around managing the core backend system with a strong focus on SQL. I ensure the efficiency, integrity, and optimization of backend databases, supporting business operations and decision-making. My responsibilities include analysing system requirements, troubleshooting database issues, improving workflows, and implementing data-driven solutions. Additionally, I take on various roles as required, adapting to evolving business needs, whether it's enhancing system functionality, integrating new technologies, or supporting cross-functional teams. My expertise in SQL and backend management plays a crucial role in maintaining and enhancing the company's operational efficiency.",
+            "As a Forward Deployed AI Engineer at Beckett's Foods, I work directly with operational teams to design, build and deploy AI and data solutions on top of the company's core systems, with a strong foundation in SQL. I ensure the efficiency, integrity, and optimization of backend databases, supporting business operations and decision-making. My responsibilities include analysing system requirements, troubleshooting database issues, improving workflows, and implementing data-driven solutions. Additionally, I take on various roles as required, adapting to evolving business needs, whether it's enhancing system functionality, integrating new technologies, or supporting cross-functional teams. My expertise in SQL and backend management plays a crucial role in maintaining and enhancing the company's operational efficiency.",
             "At Neatcom, my data analysis initiatives are propelled by the fresh perspective, SQL and Python expertise I cultivated at Coventry University. My role pivots around extracting actionable insights, which significantly enhances our fleet management solutions. The analytical prowess honed through my recent academic journey and prior development experience at Codegnan is instrumental in enriching our educational curriculum. Certifications from Microsoft and IBM affirm my commitment to maintaining precision in our data-driven strategies."
         ],
         "experience": [
@@ -131,7 +131,7 @@
 
     const buildResume = jsPDF => {
         const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-        const W = 210, H = 297, MX = 18, MY = 15, CW = W - MX * 2, GAP = 2.6;
+        const W = 210, H = 297, MX = 18, MY = 13.5, CW = W - MX * 2, GAP = 2.6;
         const INK = [17, 17, 17], MUTED = [92, 92, 92], LINE = [210, 210, 210], ACCENT = [96, 122, 28];
         const lh = pt => pt * 0.3528 * 1.3;
         let y = MY;
